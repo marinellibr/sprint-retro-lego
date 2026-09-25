@@ -45,7 +45,6 @@ button:focus-visible, a:focus-visible, input:focus-visible + i {
 .brand-mark i { position: absolute; width: 7px; height: 5px; top: -7px; background: var(--manual-orange); border: 2px solid currentColor; border-bottom: 0; border-radius: 3px 3px 0 0; }
 .brand-mark i:first-child { left: 3px; }.brand-mark i:last-child { right: 3px; }
 .audio-controls { min-height: 44px; display: flex; align-items: center; gap: 8px; padding: 4px; border: 2px solid var(--ink); border-radius: 3px; background: rgba(255,255,255,.92); box-shadow: 3px 3px 0 var(--ink); }
-.audio-label { display: none; padding-left: 6px; font-size: .64rem; font-weight: 900; letter-spacing: .1em; }
 .audio-toggle { width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 0; background: var(--manual-yellow); cursor: pointer; }
 .audio-toggle svg { grid-area: 1 / 1; width: 22px; height: 22px; fill: var(--ink); stroke: var(--ink); stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; }
 .audio-toggle .sound-off { display: none; }
@@ -147,7 +146,7 @@ body.summary-model .model-stage{height:23svh;min-height:170px}
   .parts-list { max-width: 560px; }
   .parts-list li { grid-template-columns:38px auto 1fr;grid-template-areas:"icon count label";gap:8px;padding:8px }
   .parts-list strong { font-size:1.35rem;align-self:center;overflow-wrap:normal }.parts-list li > span:last-child{font-size:.75rem;align-self:center;overflow-wrap:normal}
-  .audio-label, .volume-control { display: block; }
+  .volume-control { display: block; }
   .model-stage { left: 37%; height: 48svh; }
 }
 
