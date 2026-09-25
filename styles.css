@@ -155,6 +155,7 @@ body.summary-model .model-stage{height:23svh;min-height:170px}
   body.final-model .scene-complete { padding-bottom: calc(37svh + 88px + var(--safe-bottom)); }
   body.summary-model .model-stage { height: 21svh; min-height: 150px; }
   .scene-summary { padding-bottom: calc(24svh + 88px + var(--safe-bottom)); }
+  .summary-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 600px) {
