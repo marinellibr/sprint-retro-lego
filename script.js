@@ -49,8 +49,28 @@ let rotationFrame = 0;
 let resizeObserver;
 const modelRotation = { x: -0.08, y: -0.58, userControlled: false };
 
-initPresentation();
-initThree();
+bootstrap();
+
+async function bootstrap() {
+  await populateContent();
+  initPresentation();
+  initThree();
+}
+
+async function populateContent() {
+  try {
+    const response = await fetch('./content.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const content = await response.json();
+
+    document.querySelectorAll('[data-content]').forEach(element => {
+      const value = element.dataset.content.split('.').reduce((current, key) => current?.[key], content);
+      if (value !== undefined && value !== null) element.textContent = String(value);
+    });
+  } catch (error) {
+    console.warn('Não foi possível carregar content.json; usando os placeholders do HTML.', error);
+  }
+}
 
 function initPresentation() {
   state.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

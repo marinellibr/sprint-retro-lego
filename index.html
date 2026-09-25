@@ -14,7 +14,7 @@
   <link rel="modulepreload" href="./vendor/three/three.module.js">
   <title>SPRINT BUILD — Assembly Instructions</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ffd500'/%3E%3Crect x='10' y='22' width='44' height='31' rx='5' fill='%23f57c00' stroke='%23111' stroke-width='4'/%3E%3Crect x='17' y='12' width='12' height='11' rx='4' fill='%23f57c00' stroke='%23111' stroke-width='4'/%3E%3Crect x='35' y='12' width='12' height='11' rx='4' fill='%23f57c00' stroke='%23111' stroke-width='4'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./styles.css?v=20260925-audio-clean">
+  <link rel="stylesheet" href="./styles.css?v=20260925-content-json">
   <script type="importmap">
     {
       "imports": {
@@ -50,13 +50,13 @@
     <div class="scene-stack">
       <section class="scene scene-cover is-active" id="scene-0" data-scene="0" data-build-stage="0" aria-labelledby="scene-0-title">
         <div class="scene-copy cover-copy">
-          <div class="manual-label"><span>SET NO.</span><strong>[SPRINT_NUMBER]</strong></div>
+          <div class="manual-label"><span>SET NO.</span><strong data-content="sprint.number">[SPRINT_NUMBER]</strong></div>
           <p class="kicker">ASSEMBLY INSTRUCTIONS</p>
           <h1 id="scene-0-title"><span>SPRINT</span><strong>BUILD</strong></h1>
           <p class="cover-note">LET'S BUILD THIS.</p>
           <div class="metadata-strip" aria-label="Metadados da sprint">
-            <span>SPRINT [SPRINT_NUMBER]</span>
-            <span>[SPRINT_DURATION] DAYS</span>
+            <span>SPRINT <b data-content="sprint.number">[SPRINT_NUMBER]</b></span>
+            <span><b data-content="sprint.durationDays">[SPRINT_DURATION]</b> DAYS</span>
             <span>1 SQUAD</span>
             <span>RESULTS MAY VARY</span>
           </div>
@@ -70,10 +70,10 @@
           <h2 id="scene-1-title">OPEN<br>THE BOX</h2>
           <p class="lead">Primeiro, confira o inventário real desta sprint.</p>
           <ul class="parts-list" aria-label="Inventário da sprint">
-            <li><span class="part-icon blue" aria-hidden="true"></span><strong>[QTD]</strong><span>histórias</span></li>
-            <li><span class="part-icon yellow" aria-hidden="true"></span><strong>[QTD]</strong><span>pessoas</span></li>
-            <li><span class="part-icon orange" aria-hidden="true"></span><strong>[QTD]</strong><span>integrações</span></li>
-            <li><span class="part-icon black" aria-hidden="true"></span><strong>[SPRINT_DURATION]</strong><span>dias</span></li>
+            <li><span class="part-icon blue" aria-hidden="true"></span><strong data-content="inventory.stories">[QTD_HISTORIAS]</strong><span>histórias</span></li>
+            <li><span class="part-icon yellow" aria-hidden="true"></span><strong data-content="inventory.people">[QTD_PESSOAS]</strong><span>pessoas</span></li>
+            <li><span class="part-icon orange" aria-hidden="true"></span><strong data-content="inventory.integrations">[QTD_INTEGRACOES]</strong><span>integrações</span></li>
+            <li><span class="part-icon black" aria-hidden="true"></span><strong data-content="sprint.durationDays">[SPRINT_DURATION]</strong><span>dias</span></li>
           </ul>
           <div class="mystery-piece" data-step>
             <span class="loose-brick" aria-hidden="true"></span>
@@ -89,9 +89,9 @@
           <h2 id="scene-2-title">BUILD<br>THE BASE</h2>
           <p class="lead">Toda construção começa antes da parte que aparece.</p>
           <ol class="instruction-list">
-            <li><span>1</span><div><strong>[BASE_ITEM_01]</strong><small>planejamento / refinamento</small></div></li>
-            <li data-step><span>2</span><div><strong>[BASE_ITEM_02]</strong><small>arquitetura / preparação</small></div></li>
-            <li data-step><span>3</span><div><strong>[BASE_ITEM_03]</strong><small>alinhamentos / base técnica</small></div></li>
+            <li><span>1</span><div><strong data-content="foundation.item1">[BASE_ITEM_01]</strong><small>planejamento / refinamento</small></div></li>
+            <li data-step><span>2</span><div><strong data-content="foundation.item2">[BASE_ITEM_02]</strong><small>arquitetura / preparação</small></div></li>
+            <li data-step><span>3</span><div><strong data-content="foundation.item3">[BASE_ITEM_03]</strong><small>alinhamentos / base técnica</small></div></li>
           </ol>
         </div>
       </section>
@@ -103,11 +103,11 @@
           <h2 id="scene-3-title">CONNECT<br>THE PIECES</h2>
           <p class="lead">Partes diferentes, funcionando como uma só.</p>
           <div class="connection-diagram" aria-label="Fluxo de conexão das entregas">
-            <div class="diagram-piece"><span>1×</span><strong>[DELIVERY_01]</strong></div>
+            <div class="diagram-piece"><span>1×</span><strong data-content="connection.delivery1">[DELIVERY_01]</strong></div>
             <svg aria-hidden="true" viewBox="0 0 92 42"><path d="M2 21h72"/><path d="m63 8 17 13-17 13"/></svg>
-            <div class="diagram-piece"><span>1×</span><strong>[DELIVERY_02]</strong></div>
+            <div class="diagram-piece"><span>1×</span><strong data-content="connection.delivery2">[DELIVERY_02]</strong></div>
           </div>
-          <p class="annotation" data-step><span>NOTE</span>[COLLABORATION_HIGHLIGHT]</p>
+          <p class="annotation" data-step><span>NOTE</span><b data-content="connection.collaborationHighlight">[COLLABORATION_HIGHLIGHT]</b></p>
         </div>
       </section>
 
@@ -118,11 +118,11 @@
           <h2 id="scene-4-title">THIS PIECE<br>DOESN'T FIT.</h2>
           <div class="fit-check wrong">
             <span class="check-symbol" aria-label="Montagem incorreta">×</span>
-            <div><strong>[MAIN_CHALLENGE]</strong><p>O bloqueio, bug ou mudança de requisito entra aqui.</p></div>
+            <div><strong data-content="challenge.main">[MAIN_CHALLENGE]</strong><p>O bloqueio, bug ou mudança de requisito entra aqui.</p></div>
           </div>
           <div class="fit-check right" data-step>
             <span class="check-symbol" aria-label="Montagem correta">✓</span>
-            <div><strong>[SOLUTION]</strong><p>Como a equipe ajustou o encaixe e seguiu adiante.</p></div>
+            <div><strong data-content="challenge.solution">[SOLUTION]</strong><p>Como a equipe ajustou o encaixe e seguiu adiante.</p></div>
           </div>
           <div class="mystery-piece compact" data-step><span class="loose-brick" aria-hidden="true"></span><p><strong>1×</strong> ainda sem uso</p></div>
         </div>
@@ -135,9 +135,9 @@
           <h2 id="scene-5-title">TEST BEFORE<br>CONTINUING</h2>
           <p class="lead">Confirme o encaixe antes de fechar a estrutura.</p>
           <div class="test-grid">
-            <article><span class="test-mark">✓</span><h3>[TEST_01]</h3><p>[TEST_RESULT_01]</p></article>
-            <article data-step><span class="test-mark">✓</span><h3>[TEST_02]</h3><p>[TEST_RESULT_02]</p></article>
-            <article data-step><span class="test-mark">✓</span><h3>[REAL_METRIC_01]</h3><p>[METRIC_LABEL_01]</p></article>
+            <article><span class="test-mark">✓</span><h3 data-content="tests.test1.name">[TEST_01]</h3><p data-content="tests.test1.result">[TEST_RESULT_01]</p></article>
+            <article data-step><span class="test-mark">✓</span><h3 data-content="tests.test2.name">[TEST_02]</h3><p data-content="tests.test2.result">[TEST_RESULT_02]</p></article>
+            <article data-step><span class="test-mark">✓</span><h3 data-content="tests.metric.value">[REAL_METRIC_01]</h3><p data-content="tests.metric.label">[METRIC_LABEL_01]</p></article>
           </div>
         </div>
       </section>
@@ -149,9 +149,9 @@
           <h2 id="scene-6-title">ALMOST<br>THERE</h2>
           <p class="lead">Agora entram os detalhes que fazem tudo parecer pronto.</p>
           <ul class="finish-list">
-            <li><span aria-hidden="true">→</span><strong>[FINAL_DELIVERY]</strong></li>
-            <li data-step><span aria-hidden="true">→</span><strong>[POLISH_OR_ADJUSTMENT]</strong></li>
-            <li data-step><span aria-hidden="true">→</span><strong>[RESOLVED_PENDING_ITEM]</strong></li>
+            <li><span aria-hidden="true">→</span><strong data-content="finalization.finalDelivery">[FINAL_DELIVERY]</strong></li>
+            <li data-step><span aria-hidden="true">→</span><strong data-content="finalization.polishOrAdjustment">[POLISH_OR_ADJUSTMENT]</strong></li>
+            <li data-step><span aria-hidden="true">→</span><strong data-content="finalization.resolvedPendingItem">[RESOLVED_PENDING_ITEM]</strong></li>
           </ul>
           <div class="mystery-piece compact" data-step><span class="loose-brick" aria-hidden="true"></span><p><strong>1×</strong> familiar?</p></div>
         </div>
@@ -175,12 +175,12 @@
           <p class="kicker">WHAT WE BUILT</p>
           <h2 id="scene-8-title">O QUE MONTAMOS<br>NESTA SPRINT</h2>
           <div class="summary-grid">
-            <article><strong>[QTD]</strong><span>entregas</span></article>
-            <article><strong>[QTD]</strong><span>aprendizados</span></article>
-            <article><strong>[QTD]</strong><span>experimentos</span></article>
-            <article><strong>[QTD]</strong><span>melhorias</span></article>
+            <article><strong data-content="summary.deliveriesCount">[QTD_ENTREGAS]</strong><span>entregas</span></article>
+            <article><strong data-content="summary.learningsCount">[QTD_APRENDIZADOS]</strong><span>aprendizados</span></article>
+            <article><strong data-content="summary.experimentsCount">[QTD_EXPERIMENTOS]</strong><span>experimentos</span></article>
+            <article><strong data-content="summary.improvementsCount">[QTD_MELHORIAS]</strong><span>melhorias</span></article>
           </div>
-          <div class="learning-note"><span>KEY LEARNING</span><p>[MAIN_LEARNING]</p></div>
+          <div class="learning-note"><span>KEY LEARNING</span><p data-content="summary.mainLearning">[MAIN_LEARNING]</p></div>
           <div class="leftover"><span class="loose-brick" aria-hidden="true"></span><p><strong>1× PEÇA RESTANTE</strong><br>KEEP FOR NEXT SPRINT.</p></div>
           <button class="restart-button" id="restart-button" type="button">↺ REVER SPRINT BUILD</button>
         </div>
@@ -213,6 +213,6 @@
     </button>
   </nav>
 
-  <script type="module" src="./script.js?v=20260925-audio-clean"></script>
+  <script type="module" src="./script.js?v=20260925-content-json"></script>
 </body>
 </html>

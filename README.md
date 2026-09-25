@@ -18,7 +18,9 @@ Depois abra `http://localhost:8080`.
 
 ## Editar conteúdo
 
-Todos os campos ainda não fornecidos estão marcados entre colchetes em `index.html`, por exemplo `[SPRINT_NUMBER]`, `[DELIVERY_01]` e `[MAIN_LEARNING]`.
+Edite apenas o arquivo `content.json`. Ele reúne todos os campos variáveis da apresentação, separados por seção. Os valores ainda não preenchidos continuam marcados entre colchetes, por exemplo `[SPRINT_NUMBER]`, `[DELIVERY_01]` e `[MAIN_LEARNING]`.
+
+Ao abrir a apresentação, `script.js` carrega o JSON e popula automaticamente todos os elementos identificados por `data-content`. O HTML mantém os placeholders como fallback caso o arquivo não possa ser carregado.
 
 ## Modelo 3D
 

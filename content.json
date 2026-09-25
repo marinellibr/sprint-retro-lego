@@ -1,0 +1,51 @@
+{
+  "sprint": {
+    "number": "[SPRINT_NUMBER]",
+    "durationDays": "[SPRINT_DURATION]"
+  },
+  "inventory": {
+    "stories": "[QTD_HISTORIAS]",
+    "people": "[QTD_PESSOAS]",
+    "integrations": "[QTD_INTEGRACOES]"
+  },
+  "foundation": {
+    "item1": "[BASE_ITEM_01]",
+    "item2": "[BASE_ITEM_02]",
+    "item3": "[BASE_ITEM_03]"
+  },
+  "connection": {
+    "delivery1": "[DELIVERY_01]",
+    "delivery2": "[DELIVERY_02]",
+    "collaborationHighlight": "[COLLABORATION_HIGHLIGHT]"
+  },
+  "challenge": {
+    "main": "[MAIN_CHALLENGE]",
+    "solution": "[SOLUTION]"
+  },
+  "tests": {
+    "test1": {
+      "name": "[TEST_01]",
+      "result": "[TEST_RESULT_01]"
+    },
+    "test2": {
+      "name": "[TEST_02]",
+      "result": "[TEST_RESULT_02]"
+    },
+    "metric": {
+      "value": "[REAL_METRIC_01]",
+      "label": "[METRIC_LABEL_01]"
+    }
+  },
+  "finalization": {
+    "finalDelivery": "[FINAL_DELIVERY]",
+    "polishOrAdjustment": "[POLISH_OR_ADJUSTMENT]",
+    "resolvedPendingItem": "[RESOLVED_PENDING_ITEM]"
+  },
+  "summary": {
+    "deliveriesCount": "[QTD_ENTREGAS]",
+    "learningsCount": "[QTD_APRENDIZADOS]",
+    "experimentsCount": "[QTD_EXPERIMENTOS]",
+    "improvementsCount": "[QTD_MELHORIAS]",
+    "mainLearning": "[MAIN_LEARNING]"
+  }
+}
