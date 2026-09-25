@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#55cbef">
+  <meta name="description" content="SPRINT BUILD — retrospectiva interativa em formato de manual de montagem.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SPRINT BUILD — Assembly Instructions">
+  <meta property="og:description" content="Uma retrospectiva interativa em formato de manual de montagem.">
+  <meta property="og:url" content="https://marinellibr.github.io/sprint-retro-lego/">
+  <link rel="canonical" href="https://marinellibr.github.io/sprint-retro-lego/">
+  <link rel="preload" href="./assets/models/kombi-orange-final.glb" as="fetch" crossorigin>
+  <link rel="modulepreload" href="./vendor/three/three.module.js">
+  <title>SPRINT BUILD — Assembly Instructions</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ffd500'/%3E%3Crect x='10' y='22' width='44' height='31' rx='5' fill='%23f57c00' stroke='%23111' stroke-width='4'/%3E%3Crect x='17' y='12' width='12' height='11' rx='4' fill='%23f57c00' stroke='%23111' stroke-width='4'/%3E%3Crect x='35' y='12' width='12' height='11' rx='4' fill='%23f57c00' stroke='%23111' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#presentation">Pular para a apresentação</a>
+
+  <header class="topbar" aria-label="Controles da apresentação">
+    <a class="brand" href="#scene-0" aria-label="SPRINT BUILD — voltar ao início">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>SPRINT <strong>BUILD</strong></span>
+    </a>
+    <button class="utility-button" id="accessibility-button" type="button" aria-label="Acessibilidade" aria-expanded="false" aria-controls="accessibility-panel">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.2"/><path d="M4 8.5h16M12 7v13M8 20l4-7 4 7"/></svg>
+      <span>Acessibilidade</span>
+    </button>
+  </header>
+
+  <aside class="accessibility-panel" id="accessibility-panel" aria-label="Preferências de acessibilidade" hidden>
+    <div class="panel-heading">
+      <div><span class="eyebrow">DISPLAY OPTIONS</span><h2>Acessibilidade</h2></div>
+      <button class="icon-button" id="accessibility-close" type="button" aria-label="Fechar preferências">×</button>
+    </div>
+    <label class="toggle-row"><span><strong>Texto maior</strong><small>Aumenta títulos e conteúdo</small></span><input type="checkbox" data-a11y="large-text"><i aria-hidden="true"></i></label>
+    <label class="toggle-row"><span><strong>Alto contraste</strong><small>Reforça cores e contornos</small></span><input type="checkbox" data-a11y="high-contrast"><i aria-hidden="true"></i></label>
+    <label class="toggle-row"><span><strong>Reduzir movimento</strong><small>Remove encaixes e transições</small></span><input type="checkbox" data-a11y="reduced-motion"><i aria-hidden="true"></i></label>
+  </aside>
+
+  <main id="presentation">
+    <div class="scene-stack">
+      <section class="scene scene-cover is-active" id="scene-0" data-scene="0" data-build-stage="0" aria-labelledby="scene-0-title">
+        <div class="scene-copy cover-copy">
+          <div class="manual-label"><span>SET NO.</span><strong>[SPRINT_NUMBER]</strong></div>
+          <p class="kicker">ASSEMBLY INSTRUCTIONS</p>
+          <h1 id="scene-0-title"><span>SPRINT</span><strong>BUILD</strong></h1>
+          <p class="cover-note">LET'S BUILD THIS.</p>
+          <div class="metadata-strip" aria-label="Metadados da sprint">
+            <span>SPRINT [SPRINT_NUMBER]</span>
+            <span>[SPRINT_DURATION] DAYS</span>
+            <span>1 SQUAD</span>
+            <span>RESULTS MAY VARY</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-paper" id="scene-1" data-scene="1" data-build-stage="1" aria-labelledby="scene-1-title">
+        <div class="scene-copy">
+          <div class="step-heading"><span class="step-number">01</span><span class="step-word">STEP</span></div>
+          <p class="kicker">CHECK ALL PARTS BEFORE STARTING</p>
+          <h2 id="scene-1-title">OPEN<br>THE BOX</h2>
+          <p class="lead">Primeiro, confira o inventário real desta sprint.</p>
+          <ul class="parts-list" aria-label="Inventário da sprint">
+            <li><span class="part-icon blue" aria-hidden="true"></span><strong>[QTD]</strong><span>histórias</span></li>
+            <li><span class="part-icon yellow" aria-hidden="true"></span><strong>[QTD]</strong><span>pessoas</span></li>
+            <li><span class="part-icon orange" aria-hidden="true"></span><strong>[QTD]</strong><span>integrações</span></li>
+            <li><span class="part-icon black" aria-hidden="true"></span><strong>[SPRINT_DURATION]</strong><span>dias</span></li>
+          </ul>
+          <div class="mystery-piece" data-step>
+            <span class="loose-brick" aria-hidden="true"></span>
+            <p><strong>1×</strong> peça não identificada</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-blueprint" id="scene-2" data-scene="2" data-build-stage="2" aria-labelledby="scene-2-title">
+        <div class="scene-copy">
+          <div class="step-heading"><span class="step-number">02</span><span class="step-word">STEP</span></div>
+          <p class="kicker">FOUNDATION FIRST</p>
+          <h2 id="scene-2-title">BUILD<br>THE BASE</h2>
+          <p class="lead">Toda construção começa antes da parte que aparece.</p>
+          <ol class="instruction-list">
+            <li><span>1</span><div><strong>[BASE_ITEM_01]</strong><small>planejamento / refinamento</small></div></li>
+            <li data-step><span>2</span><div><strong>[BASE_ITEM_02]</strong><small>arquitetura / preparação</small></div></li>
+            <li data-step><span>3</span><div><strong>[BASE_ITEM_03]</strong><small>alinhamentos / base técnica</small></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="scene scene-paper" id="scene-3" data-scene="3" data-build-stage="3" aria-labelledby="scene-3-title">
+        <div class="scene-copy">
+          <div class="step-heading"><span class="step-number">03</span><span class="step-word">STEP</span></div>
+          <p class="kicker">ALIGN • CONNECT • VERIFY</p>
+          <h2 id="scene-3-title">CONNECT<br>THE PIECES</h2>
+          <p class="lead">Partes diferentes, funcionando como uma só.</p>
+          <div class="connection-diagram" aria-label="Fluxo de conexão das entregas">
+            <div class="diagram-piece"><span>1×</span><strong>[DELIVERY_01]</strong></div>
+            <svg aria-hidden="true" viewBox="0 0 92 42"><path d="M2 21h72"/><path d="m63 8 17 13-17 13"/></svg>
+            <div class="diagram-piece"><span>1×</span><strong>[DELIVERY_02]</strong></div>
+          </div>
+          <p class="annotation" data-step><span>NOTE</span>[COLLABORATION_HIGHLIGHT]</p>
+        </div>
+      </section>
+
+      <section class="scene scene-warning" id="scene-4" data-scene="4" data-build-stage="3" aria-labelledby="scene-4-title">
+        <div class="scene-copy">
+          <div class="step-heading"><span class="step-number">04</span><span class="step-word">STOP</span></div>
+          <p class="kicker">DO NOT FORCE THE PART</p>
+          <h2 id="scene-4-title">THIS PIECE<br>DOESN'T FIT.</h2>
+          <div class="fit-check wrong">
+            <span class="check-symbol" aria-label="Montagem incorreta">×</span>
+            <div><strong>[MAIN_CHALLENGE]</strong><p>O bloqueio, bug ou mudança de requisito entra aqui.</p></div>
+          </div>
+          <div class="fit-check right" data-step>
+            <span class="check-symbol" aria-label="Montagem correta">✓</span>
+            <div><strong>[SOLUTION]</strong><p>Como a equipe ajustou o encaixe e seguiu adiante.</p></div>
+          </div>
+          <div class="mystery-piece compact" data-step><span class="loose-brick" aria-hidden="true"></span><p><strong>1×</strong> ainda sem uso</p></div>
+        </div>
+      </section>
+
+      <section class="scene scene-test" id="scene-5" data-scene="5" data-build-stage="5" aria-labelledby="scene-5-title">
+        <div class="scene-copy">
+          <div class="step-heading"><span class="step-number">05</span><span class="step-word">STEP</span></div>
+          <p class="kicker">CHECK THE FIT</p>
+          <h2 id="scene-5-title">TEST BEFORE<br>CONTINUING</h2>
+          <p class="lead">Confirme o encaixe antes de fechar a estrutura.</p>
+          <div class="test-grid">
+            <article><span class="test-mark">✓</span><h3>[TEST_01]</h3><p>[TEST_RESULT_01]</p></article>
+            <article data-step><span class="test-mark">✓</span><h3>[TEST_02]</h3><p>[TEST_RESULT_02]</p></article>
+            <article data-step><span class="test-mark">✓</span><h3>[REAL_METRIC_01]</h3><p>[METRIC_LABEL_01]</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-blueprint" id="scene-6" data-scene="6" data-build-stage="6" aria-labelledby="scene-6-title">
+        <div class="scene-copy">
+          <div class="step-heading"><span class="step-number">06</span><span class="step-word">STEP</span></div>
+          <p class="kicker">FINAL DETAILS</p>
+          <h2 id="scene-6-title">ALMOST<br>THERE</h2>
+          <p class="lead">Agora entram os detalhes que fazem tudo parecer pronto.</p>
+          <ul class="finish-list">
+            <li><span aria-hidden="true">→</span><strong>[FINAL_DELIVERY]</strong></li>
+            <li data-step><span aria-hidden="true">→</span><strong>[POLISH_OR_ADJUSTMENT]</strong></li>
+            <li data-step><span aria-hidden="true">→</span><strong>[RESOLVED_PENDING_ITEM]</strong></li>
+          </ul>
+          <div class="mystery-piece compact" data-step><span class="loose-brick" aria-hidden="true"></span><p><strong>1×</strong> familiar?</p></div>
+        </div>
+      </section>
+
+      <section class="scene scene-complete" id="scene-7" data-scene="7" data-build-stage="7" aria-labelledby="scene-7-title">
+        <div class="scene-copy complete-copy">
+          <p class="kicker">FINAL ASSEMBLY</p>
+          <h2 id="scene-7-title">BUILD<br>COMPLETE.</h2>
+          <div class="complete-stats">
+            <p><strong>1×</strong> SPRINT CONCLUÍDA</p>
+            <p><strong>1×</strong> KOMBI LARANJA</p>
+          </div>
+          <p class="completion-line" data-step>ASSEMBLY COMPLETE <span>✓</span></p>
+        </div>
+      </section>
+
+      <section class="scene scene-summary" id="scene-8" data-scene="8" data-build-stage="7" aria-labelledby="scene-8-title">
+        <div class="scene-copy summary-copy">
+          <div class="step-heading"><span class="step-number">08</span><span class="step-word">SUMMARY</span></div>
+          <p class="kicker">WHAT WE BUILT</p>
+          <h2 id="scene-8-title">O QUE MONTAMOS<br>NESTA SPRINT</h2>
+          <div class="summary-grid">
+            <article><strong>[QTD]</strong><span>entregas</span></article>
+            <article><strong>[QTD]</strong><span>aprendizados</span></article>
+            <article><strong>[QTD]</strong><span>experimentos</span></article>
+            <article><strong>[QTD]</strong><span>melhorias</span></article>
+          </div>
+          <div class="learning-note"><span>KEY LEARNING</span><p>[MAIN_LEARNING]</p></div>
+          <div class="leftover"><span class="loose-brick" aria-hidden="true"></span><p><strong>1× PEÇA RESTANTE</strong><br>KEEP FOR NEXT SPRINT.</p></div>
+          <button class="restart-button" id="restart-button" type="button">↺ REVER SPRINT BUILD</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="model-stage" id="model-stage" role="group" aria-label="Modelo 3D da Kombi. Arraste com o mouse ou o dedo para girar.">
+      <div class="model-grid" aria-hidden="true"></div>
+      <div id="model-canvas" tabindex="0" aria-label="Kombi 3D interativa. Use o arraste ou as setas do teclado para girar."></div>
+      <p class="model-status" id="model-status">LOADING PARTS…</p>
+      <p class="model-interaction-hint" aria-hidden="true">↔ ARRASTE PARA GIRAR</p>
+      <button class="model-reset" id="model-reset" type="button" aria-label="Voltar o modelo ao ângulo inicial">↺ REENQUADRAR</button>
+      <div class="build-counter" aria-hidden="true"><span>BUILD</span><strong id="build-progress">00 / 07</strong></div>
+    </div>
+
+    <p class="sr-only" id="model-description">Etapa de montagem 0 de 7. Apenas as primeiras peças estão visíveis.</p>
+    <div class="sr-only" id="scene-announcer" aria-live="polite"></div>
+  </main>
+
+  <nav class="presentation-controls" aria-label="Navegação da apresentação">
+    <button class="nav-button" id="previous-button" type="button" aria-label="Cena anterior">
+      <svg aria-hidden="true" viewBox="0 0 32 24"><path d="M29 12H5M13 4l-8 8 8 8"/></svg>
+    </button>
+    <div class="presentation-progress" aria-label="Progresso da apresentação">
+      <span id="scene-progress">01 / 09</span>
+      <div class="progress-track"><i id="progress-bar"></i></div>
+    </div>
+    <button class="nav-button next" id="next-button" type="button" aria-label="Próxima etapa">
+      <svg aria-hidden="true" viewBox="0 0 32 24"><path d="M3 12h24M19 4l8 8-8 8"/></svg>
+    </button>
+  </nav>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
