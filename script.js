@@ -99,6 +99,7 @@ function showScene(index, announce = true) {
   });
 
   state.reveal = 0;
+  active.scrollTop = 0;
   updateReveals(active);
   setBuildStage(Number(active.dataset.buildStage || 0), state.direction > 0);
   updateProgress();
@@ -133,12 +134,24 @@ function next() {
     updateReveals(active);
     updateProgress();
     ui.announcer.textContent = `Informação adicional ${state.reveal} de ${reveals.length}.`;
+    keepRevealedItemVisible(reveals[state.reveal - 1]);
     return;
   }
   if (state.scene < scenes.length - 1) {
     state.direction = 1;
     showScene(state.scene + 1);
   }
+}
+
+function keepRevealedItemVisible(item) {
+  if (!item || !window.matchMedia('(max-width: 599px)').matches) return;
+  requestAnimationFrame(() => {
+    item.scrollIntoView({
+      behavior: state.reducedMotion ? 'auto' : 'smooth',
+      block: 'center',
+      inline: 'nearest'
+    });
+  });
 }
 
 function previous() {

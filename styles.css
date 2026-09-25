@@ -140,6 +140,23 @@ body.summary-model .model-stage{height:23svh;min-height:170px}
 .high-contrast { --manual-blue:#20bceb;--manual-blue-light:#d6f7ff;--manual-yellow:#ffe100;--manual-orange:#ff7100;--paper:#fff;--gray-700:#111; }
 .high-contrast .scene,.high-contrast .presentation-controls{background-color:#fff}.high-contrast .scene-blueprint{background-color:#20bceb}.high-contrast .scene-warning{background-color:#ffe100}.high-contrast .scene-complete{background-color:#ff7100}
 
+@media (max-width: 599px) {
+  .scene {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: calc(31svh + 92px + var(--safe-bottom));
+    scrollbar-width: thin;
+  }
+  .model-stage { height: 28svh; min-height: 185px; }
+  .model-stage::before { height: 12%; bottom: 12%; }
+  .model-interaction-hint { bottom: 46px; }
+  body.final-model .model-stage { height: 34svh; min-height: 220px; }
+  body.final-model .scene-complete { padding-bottom: calc(37svh + 88px + var(--safe-bottom)); }
+  body.summary-model .model-stage { height: 21svh; min-height: 150px; }
+  .scene-summary { padding-bottom: calc(24svh + 88px + var(--safe-bottom)); }
+}
+
 @media (min-width: 600px) {
   .scene { padding-left: 6vw; padding-right: 6vw; }
   .scene h2 { font-size: clamp(4.5rem, 12vw, 7.5rem); }
