@@ -168,7 +168,7 @@ function initAudio() {
   const savedVolumeValue = localStorage.getItem('sprint-build:volume');
   const savedVolume = savedVolumeValue === null ? NaN : Number(savedVolumeValue);
   const savedMuted = localStorage.getItem('sprint-build:muted');
-  ui.audio.volume = Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1 ? savedVolume : 0.28;
+  ui.audio.volume = Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1 ? savedVolume : 0.05;
   ui.audio.muted = savedMuted === 'true';
   ui.audioVolume.value = String(ui.audio.volume);
   updateAudioControl();
