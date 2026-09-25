@@ -52,9 +52,25 @@ const modelRotation = { x: -0.08, y: -0.58, userControlled: false };
 bootstrap();
 
 async function bootstrap() {
+  lockViewportZoom();
   await populateContent();
   initPresentation();
   initThree();
+}
+
+function lockViewportZoom() {
+  const preventGesture = event => event.preventDefault();
+
+  document.addEventListener('gesturestart', preventGesture, { passive: false });
+  document.addEventListener('gesturechange', preventGesture, { passive: false });
+  document.addEventListener('gestureend', preventGesture, { passive: false });
+  document.addEventListener('wheel', event => {
+    if (event.ctrlKey || event.metaKey) event.preventDefault();
+  }, { passive: false });
+  document.addEventListener('keydown', event => {
+    if (!(event.ctrlKey || event.metaKey)) return;
+    if (['+', '=', '-', '_', '0'].includes(event.key)) event.preventDefault();
+  });
 }
 
 async function populateContent() {

@@ -21,7 +21,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { min-height: 100%; margin: 0; overflow: hidden; }
+html, body { min-height: 100%; margin: 0; overflow: hidden; touch-action: pan-y; }
 body { background: var(--paper); }
 button, input { font: inherit; }
 button { color: inherit; }
