@@ -32,9 +32,9 @@ const ui = {
   announcer: document.querySelector('#scene-announcer'),
   modelDescription: document.querySelector('#model-description'),
   restart: document.querySelector('#restart-button'),
-  accessibilityButton: document.querySelector('#accessibility-button'),
-  accessibilityPanel: document.querySelector('#accessibility-panel'),
-  accessibilityClose: document.querySelector('#accessibility-close'),
+  audio: document.querySelector('#background-music'),
+  audioToggle: document.querySelector('#audio-toggle'),
+  audioVolume: document.querySelector('#audio-volume'),
   modelReset: document.querySelector('#model-reset')
 };
 
@@ -62,7 +62,7 @@ function initPresentation() {
   ui.next.addEventListener('click', next);
   ui.restart.addEventListener('click', restartPresentation);
   document.addEventListener('keydown', onKeyDown);
-  initAccessibility();
+  initAudio();
   showScene(0, false);
 }
 
@@ -157,7 +157,6 @@ function updateProgress() {
 }
 
 function onKeyDown(event) {
-  if (!ui.accessibilityPanel.hidden && event.key === 'Escape') return closeAccessibility();
   if (event.target.matches('button,input,a')) return;
   if (event.key === 'ArrowRight' || event.key === ' ' || event.key === 'PageDown') { event.preventDefault(); next(); }
   if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); previous(); }
@@ -165,38 +164,59 @@ function onKeyDown(event) {
   if (event.key === 'End') { event.preventDefault(); state.direction = 1; showScene(scenes.length - 1); }
 }
 
-function initAccessibility() {
-  const preferenceMap = {
-    'large-text': 'large-text',
-    'high-contrast': 'high-contrast',
-    'reduced-motion': 'reduced-motion'
+function initAudio() {
+  const savedVolumeValue = localStorage.getItem('sprint-build:volume');
+  const savedVolume = savedVolumeValue === null ? NaN : Number(savedVolumeValue);
+  const savedMuted = localStorage.getItem('sprint-build:muted');
+  ui.audio.volume = Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1 ? savedVolume : 0.28;
+  ui.audio.muted = savedMuted === 'true';
+  ui.audioVolume.value = String(ui.audio.volume);
+  updateAudioControl();
+
+  const startAfterInteraction = event => {
+    if (event.target.closest?.('.audio-controls') || ui.audio.muted) return;
+    playAudio();
+    document.removeEventListener('pointerdown', startAfterInteraction, true);
+    document.removeEventListener('keydown', startAfterInteraction, true);
   };
-  ui.accessibilityButton.addEventListener('click', () => {
-    const willOpen = ui.accessibilityPanel.hidden;
-    ui.accessibilityPanel.hidden = !willOpen;
-    ui.accessibilityButton.setAttribute('aria-expanded', String(willOpen));
-    if (willOpen) ui.accessibilityClose.focus();
+
+  document.addEventListener('pointerdown', startAfterInteraction, true);
+  document.addEventListener('keydown', startAfterInteraction, true);
+
+  ui.audioToggle.addEventListener('click', async () => {
+    if (ui.audio.paused) {
+      ui.audio.muted = false;
+      await playAudio();
+    } else {
+      ui.audio.muted = !ui.audio.muted;
+    }
+    localStorage.setItem('sprint-build:muted', String(ui.audio.muted));
+    updateAudioControl();
   });
-  ui.accessibilityClose.addEventListener('click', closeAccessibility);
-  document.querySelectorAll('[data-a11y]').forEach(input => {
-    const key = input.dataset.a11y;
-    const saved = localStorage.getItem(`sprint-build:${key}`) === 'true';
-    input.checked = saved;
-    document.documentElement.classList.toggle(preferenceMap[key], saved);
-    if (key === 'reduced-motion' && saved) state.reducedMotion = true;
-    input.addEventListener('change', () => {
-      document.documentElement.classList.toggle(preferenceMap[key], input.checked);
-      localStorage.setItem(`sprint-build:${key}`, String(input.checked));
-      if (key === 'reduced-motion') state.reducedMotion = input.checked || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      requestRender();
-    });
+
+  ui.audioVolume.addEventListener('input', () => {
+    ui.audio.volume = Number(ui.audioVolume.value);
+    ui.audio.muted = ui.audio.volume === 0;
+    localStorage.setItem('sprint-build:volume', String(ui.audio.volume));
+    localStorage.setItem('sprint-build:muted', String(ui.audio.muted));
+    if (ui.audio.paused && ui.audio.volume > 0) playAudio();
+    updateAudioControl();
   });
 }
 
-function closeAccessibility() {
-  ui.accessibilityPanel.hidden = true;
-  ui.accessibilityButton.setAttribute('aria-expanded', 'false');
-  ui.accessibilityButton.focus();
+async function playAudio() {
+  try {
+    await ui.audio.play();
+  } catch (_) {
+    // O navegador libera a reprodução na próxima interação explícita do usuário.
+  }
+  updateAudioControl();
+}
+
+function updateAudioControl() {
+  const silent = ui.audio.muted || ui.audio.volume === 0 || ui.audio.paused;
+  ui.audioToggle.setAttribute('aria-pressed', String(silent));
+  ui.audioToggle.setAttribute('aria-label', ui.audio.paused ? 'Ativar música' : silent ? 'Desmutar música' : 'Mutar música');
 }
 
 function initThree() {

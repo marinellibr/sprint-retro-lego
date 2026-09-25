@@ -32,21 +32,20 @@
       <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
       <span>SPRINT <strong>BUILD</strong></span>
     </a>
-    <button class="utility-button" id="accessibility-button" type="button" aria-label="Acessibilidade" aria-expanded="false" aria-controls="accessibility-panel">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.2"/><path d="M4 8.5h16M12 7v13M8 20l4-7 4 7"/></svg>
-      <span>Acessibilidade</span>
-    </button>
+    <div class="audio-controls" role="group" aria-label="Controles da trilha sonora">
+      <span class="audio-label" aria-hidden="true">TRILHA</span>
+      <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Ativar música" aria-pressed="true">
+        <svg class="sound-on" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8c1.2 1 1.8 2.3 1.8 4S17.2 15 16 16M18.5 5.5c2 1.7 3 3.8 3 6.5s-1 4.8-3 6.5"/></svg>
+        <svg class="sound-off" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="m17 9 5 5m0-5-5 5"/></svg>
+      </button>
+      <label class="volume-control" for="audio-volume">
+        <span class="sr-only">Volume da música</span>
+        <input id="audio-volume" type="range" min="0" max="1" step="0.01" value="0.28" aria-label="Volume da música">
+      </label>
+    </div>
   </header>
 
-  <aside class="accessibility-panel" id="accessibility-panel" aria-label="Preferências de acessibilidade" hidden>
-    <div class="panel-heading">
-      <div><span class="eyebrow">DISPLAY OPTIONS</span><h2>Acessibilidade</h2></div>
-      <button class="icon-button" id="accessibility-close" type="button" aria-label="Fechar preferências">×</button>
-    </div>
-    <label class="toggle-row"><span><strong>Texto maior</strong><small>Aumenta títulos e conteúdo</small></span><input type="checkbox" data-a11y="large-text"><i aria-hidden="true"></i></label>
-    <label class="toggle-row"><span><strong>Alto contraste</strong><small>Reforça cores e contornos</small></span><input type="checkbox" data-a11y="high-contrast"><i aria-hidden="true"></i></label>
-    <label class="toggle-row"><span><strong>Reduzir movimento</strong><small>Remove encaixes e transições</small></span><input type="checkbox" data-a11y="reduced-motion"><i aria-hidden="true"></i></label>
-  </aside>
+  <audio id="background-music" src="./assets/audio/the-life-of-a-showgirl-instrumental.mp3" loop preload="metadata" playsinline></audio>
 
   <main id="presentation">
     <div class="scene-stack">
